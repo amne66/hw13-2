@@ -41,8 +41,8 @@ server.get('/running-man.jpg', (req, reply) => {
 server.get('/cv', (req, reply) => {
     return reply.sendFile('CV2.pdf')
 })
-
-server.listen({ port: 4002, host: '0.0.0.0' }, err => {
+const port: any = process.env.PORT ?? process.env.$PORT ?? 4002;
+server.listen({ port: port, host: '0.0.0.0' }, err => {
     if (err) {
         console.log(err);
         process.exit(1);
